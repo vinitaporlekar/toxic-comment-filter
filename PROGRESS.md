@@ -1,17 +1,22 @@
-# Progress Log
-
-Daily notes on what I learned and built.
-
-## Day 1 — Setup & First Look at the Data ✓
+## Day 3 — Understanding DistilBERT + Colab Setup ✓
 
 **What I did:**
-- Created repo, virtual environment, initial files
-- Downloaded and explored the Jigsaw Toxic Comments dataset (~160K rows)
-- Wrote data exploration script with visualizations
+- Learned what DistilBERT is and why we're using it
+- Learned tokenization: subword vocab, [CLS]/[SEP]/[PAD], attention masks
+- Set up Google Colab with T4 GPU (verified via torch.cuda.is_available())
+- Ran the tokenizer locally on real Jigsaw comments
 
-**What I learned:**
-- Dataset has **159,571 comments** — plenty for fine-tuning
-- **Only 10.17% are toxic** — heavily imbalanced dataset
-- Individual labels are even rarer:
-  - `threat`: 0.30%, `identity_hate`: 0.88%, `severe_toxic`: 1.00%
--
+**Key concepts:**
+- DistilBERT = compressed BERT (60% size, 97% accuracy)
+- Pre-trained models already know English; fine-tuning teaches them our task
+- Text → subword tokens → numeric IDs → neural network
+- Max length 256 tokens covers 75% of our comments fully
+- Attention mask distinguishes real tokens from padding
+
+**Setup verified:**
+- Colab GPU: Tesla T4, 15.8 GB memory ✓
+- Transformers library installed locally ✓
+- Can tokenize Jigsaw comments successfully ✓
+
+**Blocked on:**
+- Nothing
